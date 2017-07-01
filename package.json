@@ -1,0 +1,36 @@
+{
+  "name": "express-mircoservice-starter",
+  "version": "0.3.0",
+  "main": "dist/app.js",
+  "author": "Julie Ng <me@julie.io>",
+  "scripts": {
+    "prestart": "npm run compile",
+    "start": "node dist/app.js",
+    "dev": "concurrently 'npm run server' 'npm run lint:watch' 'PORT=3001 npm run test:watch'",
+    "server": "nodemon -w src --exec 'babel-node src/app'",
+    "compile": "babel src --out-dir dist --ignore *spec.js",
+    "release": "standard-version",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "lint:watch": "nodemon -w specs -w src --exec 'npm run lint'",
+    "test": "babel-node jasmine.js",
+    "test:watch": "nodemon -w specs -w src --exec 'npm test'"
+  },
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "express": "^4.14.0",
+    "http": "^0.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-root-import": "^5.1.0",
+    "babel-preset-es2015": "^6.18.0",
+    "concurrently": "^3.5.0",
+    "eslint": "^3.19.0",
+    "jasmine": "^2.5.3",
+    "nodemon": "^1.11.0",
+    "request": "^2.81.0",
+    "standard-version": "^4.2.0"
+  }
+}
