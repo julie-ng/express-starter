@@ -1,5 +1,7 @@
 # NodeJS Starter
 
+[![Build Status](https://travis-ci.org/jng5/express-es6-starter.svg?branch=master)](https://travis-ci.org/jng5/express-es6-starter)
+
 A custom [NodeJS](https://nodejs.org/) starter project with the following setup:
 
 - [ECMAScript 6](#ecmascript-6)
