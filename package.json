@@ -3,6 +3,12 @@
   "version": "0.3.0",
   "main": "dist/app.js",
   "author": "Julie Ng <me@julie.io>",
+  "license": "MIT",
+  "description": "A custom node starter template for microservice architecture.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jng5/express-es6-starter.git"
+  },
   "scripts": {
     "prestart": "npm run compile",
     "start": "node dist/app.js",
