@@ -10,7 +10,7 @@ A custom [NodeJS](https://nodejs.org/) starter project with the following setup:
 - [ES6 Linter](#es6-linter)
 - [Development Workflow](#development-workflow)
   - [Docker Setup](#docker)
-- [Deployment and Production](deployment-and-production)
+- [Deployment and Production](#deployment-and-production)
   - [Jenkins Pipeline](#jenkins-pipeline)
   - [Automated Semantic Versioning](#automated-semantic-versioning)
 
