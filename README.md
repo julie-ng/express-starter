@@ -8,7 +8,9 @@ A custom [NodeJS](https://nodejs.org/) starter project with the following setup:
 - [ES6 Linter](#es6-linter)
 - [Development Workflow](#development-workflow)
   - [Docker Setup](#docker)
-- [Jenkins Pipeline](#jenkins-pipeline)
+- [Deployment and Production](deployment-and-production)
+  - [Jenkins Pipeline](#jenkins-pipeline)
+  - [Automated Semantic Versioning](#automated-semantic-versioning)
 
 This project is meant to be used in a microservice architecture, which is why it intentionally does not include any UI.
 
@@ -160,9 +162,11 @@ These presets save you from common gotchas:
 - `docker-compose.yml`: note that `node_modules` is mounted separately. This is required because native bindings can differ between the container and your development computer.
 - Included `.dockerignore` to avoid copying giant `node_modules` folder on build.
 
-Note these files are configured for _development only_. If you plan to use them for development, you will make adjustments, e.g. use a different base image:
+Note these files are configured for _development only_. If you plan to use them for development, you will make adjustments, e.g. use a different base image.
 
-## Jenkins Pipeline
+## Deployment and Production
+
+### Jenkins Pipeline
 
 There is a sample `Jenkinsfile` which a declarative pipeline including the following common stages:
 
@@ -170,6 +174,26 @@ There is a sample `Jenkinsfile` which a declarative pipeline including the follo
 - `npm install`
 - run linter
 - run unit specs
+
+### Automated Semantic Versioning
+
+This project uses [standard-version](https://github.com/conventional-changelog/standard-version) for automatic semantic versioning and change logs. 
+
+1) Commit messages must follow the [Conventional Commits standard](https://conventionalcommits.org/).
+
+2) When you are ready to release, just run:
+
+```
+npm run release
+```
+
+which will automatically:
+
+- update your `CHANGELOG.md`
+- tag your git repository
+
+Depending on your commit messages, standard-version will automatically determine if it's a major, minor or patch release.
+
 
 ## License (MIT)
 
