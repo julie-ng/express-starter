@@ -1,20 +1,38 @@
-# NodeJS Starter
+# Express ES6 Starter
 
 [![Build Status](https://travis-ci.org/jng5/express-es6-starter.svg?branch=master)](https://travis-ci.org/jng5/express-es6-starter)
 
-A custom [NodeJS](https://nodejs.org/) starter project with the following setup:
+A custom [NodeJS](https://nodejs.org/) starter project with preconfigurations and examples to help you ship quality code early and often. 
 
-- [ECMAScript 6](#ecmascript-6)
-- [Express Server](#express-server)
-- [Unit Specs with Jasmine](#unit-specs-with-jasmine)
-- [ES6 Linter](#es6-linter)
-- [Development Workflow](#development-workflow)
-  - [Docker Setup](#docker)
-- [Deployment and Production](#deployment-and-production)
-  - [Jenkins Pipeline](#jenkins-pipeline)
-  - [Automated Semantic Versioning](#automated-semantic-versioning)
+- ### Components 
 
-This project is meant to be used in a microservice architecture, which is why it intentionally does not include any UI.
+  | Component |  |
+  |:--|:--|
+  | [ECMAScript 6](#ecmascript-6) JavaScript | Babel precofigured |
+  | [Express Server](#express-server) | See `src/app.js` |
+
+- ### Code Quality 👌
+  
+  Jasmine is preconfigured and an example spec showing how to test Express apps is included. Just as important as testing but often forgotten is linitng. As author of _Clean Code_ Robert Martin wrote:
+
+  > Consistent indentation style was one of the most statistically significant indicators of low bug density.
+
+  | Tool |  |
+  |:--|:--|
+  | [ES6 Linter](#es6-linter) | Preconfigured with `.eslintrc` |
+  | [Unit Specs with Jasmine](#unit-specs-with-jasmine) | Includes `app.spec.js` example for Express |
+
+- ### Ship It 🚀
+
+  Or it didn't happen. Included configurations to help make development and releases easier.
+
+  | Workflow |  |
+  |:--|:--|
+  | [Development: Docker Setup](#docker) | Preconfigured `Dockerfile` and `docker-compose.yml` |
+  | [Automated Semantic Versioning](#automated-semantic-versioning) | `npm run release` bumps version, tags repo and updates change log |
+  | [Jenkins Build Pipeline](#jenkins-pipeline) | Includes `Jenkinsfile` starter |
+
+This project is meant to be used in a microservice architecture, which is why it intentionally does not include any UI. It is also very opinionated, so feel free to customize for your needs. You might not find semicolons as offensive as I do. The most important thing is to ship high quality code (tests) and often (automation). How you do it is up to you.  
 
 ## ECMAScript 6
 
@@ -106,7 +124,7 @@ function (foo) {
   return true
 }
 
-// will error
+// Fails
 function(foo) {
   return true
 }
@@ -118,7 +136,7 @@ Consistent [spacing inside curly braces](http://eslint.org/docs/rules/object-cur
 // OK
 import { app }
 
-// will error
+// Fails
 import {app}
 ```
 
@@ -156,7 +174,7 @@ npm run test:watch
 
 ### Docker
 
-For your convenience, there is an included `Dockerfile` and `docker-compose.yml` and helps you jumpstart your microservice architecture.
+For your convenience, there is an included `Dockerfile` and `docker-compose.yml`, which help jumpstart your microservice architecture.
 
 These presets save you from common gotchas:
 
