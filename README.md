@@ -182,7 +182,7 @@ These presets save you from common gotchas:
 - `docker-compose.yml`: note that `node_modules` is mounted separately. This is required because native bindings can differ between the container and your development computer.
 - Included `.dockerignore` to avoid copying giant `node_modules` folder on build.
 
-Note these files are configured for _development only_. If you plan to use them for development, you will make adjustments, e.g. use a different base image.
+Note these files are configured for _development only_. If you plan to use them in production, you will make adjustments, e.g. use a different base image.
 
 ## Deployment and Production
 
