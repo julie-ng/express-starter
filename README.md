@@ -1,6 +1,6 @@
 # Express ES6 Starter
 
-[![Build Status](https://travis-ci.org/jng5/express-es6-starter.svg?branch=master)](https://travis-ci.org/jng5/express-es6-starter)
+[![Build Status](https://travis-ci.org/julie-ng/express-es6-starter.svg?branch=master)](https://travis-ci.org/julie-ng/express-es6-starter)
 
 A custom [NodeJS](https://nodejs.org/) starter project with preconfigurations and examples to help you ship quality code early and often. 
 
