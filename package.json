@@ -1,6 +1,6 @@
 {
   "name": "express-es6-starter",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "main": "dist/app.js",
   "author": "Julie Ng <me@julie.io>",
   "license": "MIT",
