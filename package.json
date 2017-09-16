@@ -38,5 +38,61 @@
     "nodemon": "^1.11.0",
     "request": "^2.81.0",
     "standard-version": "^4.2.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ],
+    "plugins": [
+      [
+        "babel-plugin-root-import",
+        {
+          "rootPathPrefix": "~",
+          "rootPathSuffix": "src"
+        }
+      ]
+    ]
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": "eslint:recommended",
+    "env": {
+      "es6": true,
+      "jasmine": true,
+      "node": true
+    },
+    "globals": {
+      "context": true
+    },
+    "rules": {
+      "no-console": "off",
+      "no-unused-vars": [
+        "error",
+        {
+          "args": "none"
+        }
+      ],
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ],
+      "semi": [
+        "error",
+        "never"
+      ],
+      "space-before-blocks": "error",
+      "space-before-function-paren": "error",
+      "spaced-comment": [
+        "error",
+        "always",
+        {
+          "exceptions": [
+            "-",
+            "+"
+          ]
+        }
+      ],
+      "strict": "warn"
+    }
   }
 }
