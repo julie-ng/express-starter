@@ -7,7 +7,7 @@
   "description": "A custom node starter template for microservice architecture.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jng5/express-es6-starter.git"
+    "url": "https://github.com/julie-ng/express-es6-starter.git"
   },
   "scripts": {
     "prestart": "npm run compile",

@@ -3,12 +3,12 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 <a name="0.5.0"></a>
-# [0.5.0](https://github.com/jng5/express-es6-starter/compare/v0.4.0...v0.5.0) (2017-09-16)
+# [0.5.0](https://github.com/julie-ng/express-es6-starter/compare/v0.4.0...v0.5.0) (2017-09-16)
 
 
 ### Features
 
-* **configs:** move babel and eslint configs to package.json ([ebf1ed7](https://github.com/jng5/express-es6-starter/commit/ebf1ed7))
+* **configs:** move babel and eslint configs to package.json ([ebf1ed7](https://github.com/julie-ng/express-es6-starter/commit/ebf1ed7))
 
 
 
