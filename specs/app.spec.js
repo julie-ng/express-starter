@@ -1,6 +1,9 @@
 // eslint-disable-next-line no-unused-vars
-import { app } from '~/app'
-import request from 'request'
+'use strict'
+
+// eslint-disable-next-line no-unused-vars
+const app = require('../src/app')
+const request = require('request')
 
 const port = process.env.PORT || 3000
 

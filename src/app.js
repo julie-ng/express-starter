@@ -1,5 +1,7 @@
-import bodyParser from 'body-parser'
-import express from 'express'
+'use strict'
+
+const bodyParser = require('body-parser')
+const express = require('express')
 
 let web = express()
 const port = process.env.PORT || 3000
@@ -15,4 +17,4 @@ web.listen(port, function () {
   console.log(`Listening on port ${port}`)
 })
 
-export { web as app }
+module.exports = web

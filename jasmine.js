@@ -1,4 +1,6 @@
-import Jasmine from 'jasmine'
+'use strict'
+
+const Jasmine = require('jasmine')
 
 let jasmine = new Jasmine()
 

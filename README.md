@@ -8,7 +8,6 @@ A custom [NodeJS](https://nodejs.org/) starter project with preconfigurations an
 
   | Component |  |
   |:--|:--|
-  | [ECMAScript 6](#ecmascript-6) JavaScript | Babel precofigured |
   | [Express Server](#express-server) | See `src/app.js` |
 
 - ### Code Quality 👌
@@ -33,30 +32,6 @@ A custom [NodeJS](https://nodejs.org/) starter project with preconfigurations an
   | [Jenkins Build Pipeline](#jenkins-pipeline) | Includes `Jenkinsfile` starter |
 
 This project is meant to be used in a microservice architecture, which is why it intentionally does not include any UI. It is also very opinionated, so feel free to customize for your needs. You might not find semicolons as offensive as I do. The most important thing is to ship high quality code (tests) and often (automation). How you do it is up to you.  
-
-## ECMAScript 6
-
-This project uses the [ECMAScript 2015](https://babeljs.io/learn-es2015/) standard of JavaScript.
-
-We use [babel](https://babeljs.io/) to transpile into ECMAScript 5.
-
-#### Babel Root Plugin
-
-For readable imports, this project uses [babel-plugin-root-import](https://www.npmjs.com/package/babel-plugin-root-import), which uses `~` to reference the `src` folder. 
-
-Then we can do this:
-
-```javascript
-import { userModel } from '~/models/user'
-```
-
-which is better than:
-
-```javascript
-import { userModel } from './../../../models/user'
-```
-
-You can adjust this configuration in the `.babelrc` file.
 
 ## Express Server
 

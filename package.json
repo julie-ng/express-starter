@@ -1,7 +1,7 @@
 {
   "name": "express-es6-starter",
   "version": "0.5.1",
-  "main": "dist/app.js",
+  "main": "src/app.js",
   "author": "Julie Ng <me@julie.io>",
   "license": "MIT",
   "description": "A custom node starter template for microservice architecture.",
@@ -10,16 +10,14 @@
     "url": "https://github.com/julie-ng/express-es6-starter.git"
   },
   "scripts": {
-    "prestart": "npm run compile",
-    "start": "node dist/app.js",
+    "start": "node src/app.js",
     "dev": "concurrently 'npm run server' 'npm run lint:watch' 'PORT=3001 npm run test:watch'",
-    "server": "nodemon -w src --exec 'babel-node src/app'",
-    "compile": "babel src --out-dir dist --ignore *spec.js",
+    "server": "nodemon -w src --exec 'node src/app'",
     "release": "standard-version",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "lint:watch": "nodemon -w specs -w src --exec 'npm run lint'",
-    "test": "babel-node jasmine.js",
+    "test": "node jasmine.js",
     "test:watch": "nodemon -w specs -w src --exec 'npm test'"
   },
   "dependencies": {
@@ -28,30 +26,12 @@
     "http": "^0.0.0"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-eslint": "^7.2.3",
-    "babel-plugin-root-import": "^5.1.0",
-    "babel-preset-es2015": "^6.18.0",
     "concurrently": "^3.6.1",
     "eslint": "^3.19.0",
     "jasmine": "^2.99.0",
     "nodemon": "^1.18.4",
     "request": "^2.88.0",
     "standard-version": "^4.4.0"
-  },
-  "babel": {
-    "presets": [
-      "es2015"
-    ],
-    "plugins": [
-      [
-        "babel-plugin-root-import",
-        {
-          "rootPathPrefix": "~",
-          "rootPathSuffix": "src"
-        }
-      ]
-    ]
   },
   "engines": {
     "node": "^10.3.0",
