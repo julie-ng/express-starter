@@ -5,10 +5,6 @@ pipeline {
         timestamps()
     }
 
-    tools {
-        nodejs 'node-7'
-    }
-
     stages {
         stage('Checkout') {
             steps {
