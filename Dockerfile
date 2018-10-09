@@ -1,4 +1,4 @@
-FROM node:7
+FROM node:10
 MAINTAINER Julie Ng
 
 WORKDIR /workspace
