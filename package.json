@@ -18,7 +18,8 @@
     "lint:fix": "eslint --fix .",
     "lint:watch": "nodemon -w specs -w src --exec 'npm run lint'",
     "test": "node jasmine.js",
-    "test:watch": "nodemon -w specs -w src --exec 'npm test'"
+    "test:watch": "nodemon -w specs -w src --exec 'npm test'",
+    "preflight": "npm run lint && npm test"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
