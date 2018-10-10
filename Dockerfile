@@ -3,7 +3,7 @@ MAINTAINER Julie Ng
 
 WORKDIR /workspace
 
-COPY ["package.json", "./"]
+COPY ["package.json", "package-lock.json", "./"]
 
 RUN npm install
 
