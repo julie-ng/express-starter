@@ -2,50 +2,49 @@
 
 [![Build Status](https://travis-ci.org/julie-ng/express-starter.svg?branch=master)](https://travis-ci.org/julie-ng/express-starter)
 
-A custom [NodeJS](https://nodejs.org/) starter project with preconfigurations and examples to help you ship quality code early and often. 
+A custom [NodeJS](https://nodejs.org/) starter project with **preconfigurations** and **templates** to help you ship quality code early and often. 
 
-- ### Components 
+### Table of Contents
 
-  | Component |  |
-  |:--|:--|
-  | [Express Server](#express-server) | See `src/app.js` |
-
-- ### Code Quality 👌
-  
-  Jasmine is preconfigured and an example spec showing how to test Express apps is included. Just as important as testing but often forgotten is linitng. As author of _Clean Code_ Robert Martin wrote:
-
-  > Consistent indentation style was one of the most statistically significant indicators of low bug density.
-
-  | Tool |  |
-  |:--|:--|
-  | [ES6 Linter](#es6-linter) | Preconfigured with `.eslintrc` |
-  | [Unit Specs with Jasmine](#unit-specs-with-jasmine) | Includes `app.spec.js` example for Express |
-
-- ### Ship It 🚀
-
-  Or it didn't happen. Included configurations to help make development and releases easier.
-
-  | Workflow |  |
-  |:--|:--|
-  | [Development: Docker Setup](#docker) | Preconfigured `Dockerfile` and `docker-compose.yml` |
-  | [Automated Semantic Versioning](#automated-semantic-versioning) | `npm run release` bumps version, tags repo and updates change log |
-  | [Jenkins Build Pipeline](#jenkins-pipeline) | Includes `Jenkinsfile` starter |
-
-This project is meant to be used in a microservice architecture, which is why it intentionally does not include any UI. It is also very opinionated, so feel free to customize for your needs. You might not find semicolons as offensive as I do. The most important thing is to ship high quality code (tests) and often (automation). How you do it is up to you.  
+- [Express Server](#express-server)
+- [Code Quality](#code-quality-)
+  - [Unit Specs with Jasmine](#unit-specs-with-jasmine) 
+  - [ES Linter](#es-linter)
+- [Development Workflow](#development-workflow)
+  - [Preflight Command](#preflight-command)
+- [Docker Setup](#docker-setup)
+- [Jenkins Pipeline](#jenkins-pipeline)
+- [Automated Semantic Versioning](#automated-semantic-versioning)
 
 ## Express Server
 
 This project uses [Express](https://expressjs.com/), a minimalist web framework for Node.js. It's lightweight and great for APIs.
 
-#### Port
+### Development
 
-The server defaults to port `3000`. You can change it by setting the `PORT` environment variable, for example:
+Using [nodemon](https://github.com/remy/nodemon), the express server is automatically restarted when the `src` directory changes.
 
 ```
-PORT=4000 npm run server
+npm run server
 ```
 
-## Unit Specs with Jasmine
+The server defaults to port `3000`. You can change it by setting the `PORT` environment variable.
+
+### Production
+
+In production, run the server using just node:
+
+```
+npm start
+```
+
+## Code Quality 👌
+
+Jasmine is preconfigured and an example spec showing how to test Express apps is included. Just as important as testing but often forgotten is linitng. As author of _Clean Code_ Robert Martin wrote:
+
+> Consistent indentation style was one of the most statistically significant indicators of low bug density.
+
+### Unit Specs with Jasmine
 
 Unit tests leverage the [Jasmine testing framework](https://github.com/jasmine/jasmine). They are executed with the standard NPM `test` command.
 
@@ -76,8 +75,7 @@ describe ('login()', () => {
 })
 ```
 
-
-## ES6 Linter
+### ES Linter
 
 This project is also linted for code consistency with the [recommended rule set](http://eslint.org/docs/rules/), plus some custom changes, most notably:
 
@@ -147,7 +145,17 @@ npm run lint:watch
 npm run test:watch
 ```
 
-### Docker
+### Preflight Command
+
+Before I push code, I like to check if it will pass all continuous integration stages with a simple command that runs all the stages:
+
+```
+npm run preglight
+```
+
+If you wanted to, you could also configure a githook to ensure all your commits are green.
+
+## Docker Setup
 
 For your convenience, there is an included `Dockerfile` and `docker-compose.yml`, which help jumpstart your microservice architecture.
 
@@ -159,18 +167,16 @@ These presets save you from common gotchas:
 
 Note these files are configured for _development only_. If you plan to use them in production, you will make adjustments, e.g. use a different base image.
 
-## Deployment and Production
-
-### Jenkins Pipeline
+## Jenkins Pipeline
 
 There is a sample `Jenkinsfile` which a declarative pipeline including the following common stages:
 
 - checkout
-- `npm install`
+- install dependencies
 - run linter
 - run unit specs
 
-### Automated Semantic Versioning
+## Automated Semantic Versioning
 
 This project uses [standard-version](https://github.com/conventional-changelog/standard-version) for automatic semantic versioning and change logs. 
 
