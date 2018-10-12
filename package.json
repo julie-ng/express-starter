@@ -1,6 +1,6 @@
 {
   "name": "express-starter",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "main": "src/app.js",
   "author": "Julie Ng <me@julie.io>",
   "license": "MIT",
