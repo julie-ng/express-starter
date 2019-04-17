@@ -41,27 +41,3 @@ steps:
     command: login
     azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
     azureContainerRegistry: $(azureContainerRegistry)
-
-- task: Docker@2
-  displayName: Build image
-  inputs:
-    command: build
-    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
-    azureContainerRegistry: $(azureContainerRegistry)
-    dockerFile: Dockerfile
-    # imageName: $(Build.Repository.Name):$(Build.BuildId)
-
-- task: Docker@3
-  displayName: Push image
-  inputs:
-    command: push
-    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
-    azureContainerRegistry: $(azureContainerRegistry)
-    # imageName: $(Build.Repository.Name):$(Build.BuildId)
-
-- task: Docker@4
-  displayName: Azure CR Logout
-  inputs:
-    command: logout
-    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
-    azureContainerRegistry: $(azureContainerRegistry)
