@@ -10,7 +10,7 @@
     "url": "https://github.com/julie-ng/express-starter.git"
   },
   "scripts": {
-    "start": "node src/app.js",
+    "start": "node src/server.js",
     "dev:all": "concurrently 'npm run server' 'npm run lint:watch' 'PORT=3001 npm run test:watch'",
     "server:watch": "nodemon -w src --exec 'node src/server'",
     "lint": "eslint .",
