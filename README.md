@@ -150,7 +150,7 @@ npm run test:watch
 Before I push code, I like to check if it will pass all continuous integration stages with a simple command that runs all the stages:
 
 ```
-npm run preglight
+npm run preflight
 ```
 
 If you wanted to, you could also configure a githook to ensure all your commits are green.
