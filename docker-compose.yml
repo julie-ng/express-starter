@@ -1,4 +1,6 @@
 version: '3'
+
+# For dev use only - hence ${PWD}
 services:
   app:
     command: npm start
@@ -7,6 +9,9 @@ services:
       - 3000:3000
     volumes:
       - ${PWD}/src:/workspace/src
-      - /workspace/node_modules
+      - node_modules:/workspace/node_modules
     environment:
       PORT: 3000
+
+volumes:
+  node_modules: {}
