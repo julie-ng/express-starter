@@ -11,15 +11,15 @@
   },
   "scripts": {
     "start": "node src/app.js",
-    "dev:watch": "concurrently 'npm run server' 'npm run lint:watch' 'PORT=3001 npm run test:watch'",
-    "server:watch": "nodemon -w src --exec 'node src/app'",
-    "release": "standard-version",
+    "dev:all": "concurrently 'npm run server' 'npm run lint:watch' 'PORT=3001 npm run test:watch'",
+    "server:watch": "nodemon -w src --exec 'node src/server'",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "lint:watch": "nodemon -w specs -w src --exec 'npm run lint'",
-    "test": "node jasmine.js",
-    "test:watch": "nodemon -w specs -w src --exec 'npm test'",
-    "preflight": "npm audit && npm run lint && npm test"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "preflight": "npm audit && npm run lint && npm test",
+    "release": "standard-version"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -29,7 +29,7 @@
   "devDependencies": {
     "concurrently": "^3.6.1",
     "eslint": "^3.19.0",
-    "jasmine": "^2.99.0",
+    "jest": "^24.7.1",
     "nodemon": "^1.18.11",
     "request": "^2.88.0",
     "standard-version": "^4.4.0"
