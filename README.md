@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/julie-ng/express-starter.svg?branch=master)](https://travis-ci.org/julie-ng/express-starter)
 [![Maintainability](https://api.codeclimate.com/v1/badges/06ce93c85bab4cc03ec6/maintainability)](https://codeclimate.com/github/julie-ng/express-starter/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/06ce93c85bab4cc03ec6/test_coverage)](https://codeclimate.com/github/julie-ng/express-starter/test_coverage)
+[![Build Status](https://dev.azure.com/julie-ng/demos/_apis/build/status/julie-ng.express-starter?branchName=master)](https://dev.azure.com/julie-ng/demos/_build/latest?definitionId=2&branchName=master)
 
 A custom [NodeJS](https://nodejs.org/) starter project with **preconfigurations** and **templates** to help you ship quality code early and often. 
 
