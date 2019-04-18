@@ -13,12 +13,13 @@ variables:
   azureSubscriptionEndpoint: julie-ng-connection
   azureContainerRegistry: julie.azurecr.io
   imageTag: $(azureContainerRegistry)/$(Build.Repository.Name):$(Build.BuildId)
-  buildSha: $(git rev-parse --short HEAD)
-
 
 pool:
   vmImage: 'Ubuntu-16.04'
 
 steps:
+  - script: echo '##vso[task.setvariable variable=buildSha]$(git rev-parse --short HEAD)'
+    displayName: set build sha var
+
   - bash: echo $(buildSha)
-    displayName: try getting build sha into tasks
+    displayName: output sha var
