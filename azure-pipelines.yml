@@ -30,10 +30,13 @@ steps:
     command: build
     dockerFile: Dockerfile
 
-- task: Docker@3
-  displayName: Push image
-  inputs:
-    command: push
-    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
-    azureContainerRegistry: $(azureContainerRegistry)
-    imageName: $(Build.Repository.Name):$(Build.BuildId)    
+# - task: Docker@3
+#   displayName: Push image
+#   inputs:
+#     command: push
+#     azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+#     azureContainerRegistry: $(azureContainerRegistry)
+#     imageName: $(Build.Repository.Name):$(Build.BuildId)    
+
+- script: docker push $(azureContainerRegistry)/$(Build.Repository.Name):$(Build.BuildId)   
+  displayName: 'Push image'
