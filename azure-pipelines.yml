@@ -18,17 +18,17 @@ pool:
 
 steps:
 - task: Docker@1
-  displayName: Container registry login
+  displayName: 'Docker: ACR login'
   inputs:
     command: login
     azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
     azureContainerRegistry: $(azureContainerRegistry)
 
-- task: Docker@2
-  displayName: Build image
-  inputs:
-    command: build
-    dockerFile: Dockerfile
+# - task: Docker@2
+#   displayName: Build image
+#   inputs:
+#     command: build
+#     dockerFile: Dockerfile
 
 # - task: Docker@3
 #   displayName: Push image
@@ -38,5 +38,9 @@ steps:
 #     azureContainerRegistry: $(azureContainerRegistry)
 #     imageName: $(Build.Repository.Name):$(Build.BuildId)    
 
-- script: docker push $(azureContainerRegistry)/$(Build.Repository.Name):$(Build.BuildId)   
-  displayName: 'Push image'
+
+- script: docker build -t $(Build.Repository.Name):$(Build.BuildId) .
+  displayName: 'Docker: Build and tag image'
+
+- script: docker push $(Build.Repository.Name):$(Build.BuildId)   
+  displayName: 'Docker: Push image'
