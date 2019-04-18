@@ -19,9 +19,9 @@ pool:
 
 steps:
   - script: |
-      '##vso[task.setvariable variable=buildSha]'$(git rev-parse --short HEAD)''
-      echo 'Setting buildSha to $(buildSha)'
+      echo '##vso[task.setvariable variable=buildSha]'$(git rev-parse --short HEAD)''
+      echo '$buildSha'
     displayName: set build sha var
 
   - bash: 'echo $(buildSha)'
-    displayName: output sha var in another task
+    displayName: output sha var
