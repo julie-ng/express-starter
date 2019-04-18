@@ -12,6 +12,7 @@ trigger:
 variables:
   azureSubscriptionEndpoint: julie-ng-connection 
   azureContainerRegistry: julie.azurecr.io
+  imageTag: $(azureContainerRegistry)/$(Build.Repository.Name):$(Build.BuildId)
   
 pool:
   vmImage: 'Ubuntu-16.04'
@@ -25,10 +26,10 @@ steps:
     azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
     azureContainerRegistry: $(azureContainerRegistry)
 
-- script: docker build --tag  $(azureContainerRegistry)/$(Build.Repository.Name):$(Build.BuildId) .
+- script: docker build --tag  $(imageTag) .
   displayName: 'Docker: Build and tag image'
 
-- script: docker push $(azureContainerRegistry)/$(Build.Repository.Name):$(Build.BuildId)   
+- script: docker push $(imageTag)   
   displayName: 'Docker: Push image'
 
 - script: docker logout $(azureContainerRegistry)  
