@@ -40,4 +40,4 @@ steps:
   displayName: 'Docker: Push image'
 
 - script: docker logout $(azureContainerRegistry)
-displayName: 'Docker: logout ACR'
+  displayName: 'Docker: logout ACR'
