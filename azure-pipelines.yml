@@ -34,6 +34,6 @@ steps:
   displayName: Push image
   inputs:
     command: push
-    # azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
-    # azureContainerRegistry: $(azureContainerRegistry)
-    # imageName: $(Build.Repository.Name):$(Build.BuildId)    
+    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+    azureContainerRegistry: $(azureContainerRegistry)
+    imageName: $(Build.Repository.Name):$(Build.BuildId)    
