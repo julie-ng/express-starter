@@ -18,8 +18,10 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 steps:
-  - script: echo '##vso[task.setvariable variable=buildSha]$(git rev-parse --short HEAD)'
+  - script: |
+      echo '##vso[task.setvariable variable=buildSha]'$(git rev-parse --short HEAD)''
+      echo '$buildSha'
     displayName: set build sha var
 
-  - bash: echo $(buildSha)
+  - bash: 'echo $(buildSha)'
     displayName: output sha var
