@@ -24,6 +24,8 @@ steps:
     echo 'buildSha set to $(buildSha)'
   displayName: Get build git sha
 
+- script: docker build --tag $(imageTag)-$(buildSha) .
+  displayName: 'Docker: Build and tag image'
 
 # Use the task to avoid embedding credentials in pipeline
 - task: Docker@1
@@ -33,10 +35,7 @@ steps:
     azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
     azureContainerRegistry: $(azureContainerRegistry)
 
-- script: docker build --tag  $(imageTag)-${buildSha} .
-  displayName: 'Docker: Build and tag image'
-
-- script: docker push $(imageTag)-${buildSha}
+- script: docker push $(imageTag)-$(buildSha)
   displayName: 'Docker: Push image'
 
 - script: docker logout $(azureContainerRegistry)
