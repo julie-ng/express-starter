@@ -10,27 +10,15 @@ trigger:
     - wip/*
 
 variables:
-  azureSubscriptionEndpoint: julie-ng-connection 
+  azureSubscriptionEndpoint: julie-ng-connection
   azureContainerRegistry: julie.azurecr.io
   imageTag: $(azureContainerRegistry)/$(Build.Repository.Name):$(Build.BuildId)
-  
+  buildSha: $(git rev-parse --short HEAD)
+
+
 pool:
   vmImage: 'Ubuntu-16.04'
 
 steps:
-# Use the task to avoid embedding credentials in pipeline
-- task: Docker@1
-  displayName: 'Docker: login ACR'
-  inputs:
-    command: login
-    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
-    azureContainerRegistry: $(azureContainerRegistry)
-
-- script: docker build --tag  $(imageTag) .
-  displayName: 'Docker: Build and tag image'
-
-- script: docker push $(imageTag)   
-  displayName: 'Docker: Push image'
-
-- script: docker logout $(azureContainerRegistry)  
-  displayName: 'Docker: logout ACR'
+  - bash: echo $(buildSha)
+    displayName: try getting build sha into tasks
