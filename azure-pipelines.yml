@@ -9,6 +9,10 @@ trigger:
     exclude:
     - wip/*
 
+variables:
+  azureSubscriptionEndpoint: julie-ng-connection 
+  azureContainerRegistry: julie.azurecr.io
+  
 pool:
   vmImage: 'Ubuntu-16.04'
 
@@ -17,6 +21,5 @@ steps:
   displayName: Container registry login
   inputs:
     command: login
-    # azureSubscription: julie-ng-connection
-    azureSubscriptionEndpoint: julie-ng-connection
-    azureContainerRegistry: julie.azurecr.io
+    azureSubscriptionEndpoint: ${azureSubscriptionEndpoint}
+    azureContainerRegistry: ${azureContainerRegistry}
