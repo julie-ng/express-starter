@@ -39,7 +39,7 @@ steps:
 #     imageName: $(Build.Repository.Name):$(Build.BuildId)    
 
 
-- script: docker build -t $(Build.Repository.Name):$(Build.BuildId) .
+- script: docker build --tag  $(azureContainerRegistry)/$(Build.Repository.Name):$(Build.BuildId) .
   displayName: 'Docker: Build and tag image'
 
 - script: docker push $(azureContainerRegistry)/$(Build.Repository.Name):$(Build.BuildId)   
