@@ -1,10 +1,6 @@
 # Node.js
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
-variables:
-  azureSubscriptionEndpoint: julie-ng # Name of the Azure Service Connection
-  azureContainerRegistry: julie.azurecr.io
-
 trigger:
   branches:
     include:
@@ -12,6 +8,11 @@ trigger:
     - feat/*
     exclude:
     - wip/*
+
+variables:
+  azureSubscriptionEndpoint: julie-ng-connection
+  azureContainerRegistry: julie.azurecr.io
+  imageTag: $(azureContainerRegistry)/$(Build.Repository.Name):$(Build.BuildId)
 
 pool:
   vmImage: 'Ubuntu-16.04'
@@ -35,33 +36,19 @@ steps:
 - script: npm run test
   displayName: 'Unit Tests'
 
+# Use the task to avoid embedding credentials in pipeline
 - task: Docker@1
-  displayName: Azure CR Login
+  displayName: 'Docker: login ACR'
   inputs:
     command: login
     azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
     azureContainerRegistry: $(azureContainerRegistry)
 
-- task: Docker@2
-  displayName: Build image
-  inputs:
-    command: build
-    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
-    azureContainerRegistry: $(azureContainerRegistry)
-    dockerFile: Dockerfile
-    # imageName: $(Build.Repository.Name):$(Build.BuildId)
+- script: docker build --tag  $(imageTag) .
+  displayName: 'Docker: build and tag image'
 
-- task: Docker@3
-  displayName: Push image
-  inputs:
-    command: push
-    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
-    azureContainerRegistry: $(azureContainerRegistry)
-    # imageName: $(Build.Repository.Name):$(Build.BuildId)
+- script: docker push $(imageTag)
+  displayName: 'Docker: push image'
 
-- task: Docker@4
-  displayName: Azure CR Logout
-  inputs:
-    command: logout
-    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
-    azureContainerRegistry: $(azureContainerRegistry)
+- script: docker logout $(azureContainerRegistry)
+  displayName: 'Docker: logout ACR'
